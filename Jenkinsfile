@@ -1,7 +1,13 @@
 pipeline {
+    bilal
     agent any
 
     stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello World'
+            }
+        }
         
          stage('Build') {
             steps {
@@ -9,15 +15,20 @@ pipeline {
             }
         }
         
-         stage('test') {
+         stage('deploy') {
             steps {
-                echo 'tetsing'
+                echo 'deploying'
             }
         }
         
-          stage('deploy') {
+          stage('test') {
             steps {
-                echo 'deploying'
+                echo 'testing'
+            }
+        }
+          stage('release') {
+            steps {
+                echo 'releasing'
             }
         }
     }
