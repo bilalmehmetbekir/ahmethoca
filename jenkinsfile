@@ -1,35 +1,14 @@
-pipeline {
-    bilal
-    agent any
-
-    stages {
-        stage('Hello') {
-            steps {
-                echo 'Hello World'
-            }
-        }
-        
-         stage('Build') {
-            steps {
-                echo 'building'
-            }
-        }
-        
-         stage('deploy') {
-            steps {
-                echo 'deploying'
-            }
-        }
-        
-          stage('test') {
-            steps {
-                echo 'testing'
-            }
-        }
-          stage('release') {
-            steps {
-                echo 'releasing'
-            }
-        }
+node {
+  agent any
+  stage('Build'){
+    // build code
+  }
+  post{
+    success {
+        echo 'Project build successfully!'
     }
+    failure {
+        echo 'Project build failed!'
+    }
+  }  
 }
